@@ -5,6 +5,7 @@ import wiwiel.training.commands.RecipeCommand;
 import wiwiel.training.converters.RecipeCommandToRecipe;
 import wiwiel.training.converters.RecipeToRecipeCommand;
 import wiwiel.training.domain.Recipe;
+import wiwiel.training.exceptions.NotFoundException;
 import wiwiel.training.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,7 @@ public class RecipeServiceImpl implements RecipeService {
     public Recipe findById(Long id) {
         Optional<Recipe> recipeOptional = recipeRepository.findById(id);
         if(recipeOptional.isEmpty()) {
-            throw new RuntimeException("Recipe Not Found!");
+            throw new NotFoundException("Recipe Not Found. For ID value: " + id);
         }
 
         return recipeOptional.get();
