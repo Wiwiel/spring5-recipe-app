@@ -1,5 +1,6 @@
 package wiwiel.training.bootstrap;
 
+import org.springframework.context.annotation.Profile;
 import wiwiel.training.domain.*;
 import wiwiel.training.repositories.CategoryRepository;
 import wiwiel.training.repositories.RecipeRepository;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 @Slf4j
 @Component
+@Profile("default")
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private final CategoryRepository categoryRepository;

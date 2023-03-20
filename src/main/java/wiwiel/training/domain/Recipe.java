@@ -20,6 +20,7 @@ public class Recipe {
     private String url;
 
     @Lob
+    @Column(name="directions", length = 65535)
     private String directions;
 
     @Enumerated(value = EnumType.STRING)

@@ -15,6 +15,7 @@ public class Note {
     private Recipe recipe;
 
     @Lob
+    @Column(name="recipe_notes", length = 65535)
     private String recipeNotes;
 
 }
